@@ -245,7 +245,7 @@ spec:
 
     - id: hibernate-orm-rest-dataTemplate
       name: Fetching additional files ...
-      if: ${{ 'io.quarkus:quarkus-hibernate-orm-rest-data-panache' in parameters.extensions }}
+      if: ${{ 'io.quarkus:quarkus-hibernate-orm-rest-data-panache' in parameters.extensions and (parameters.quarkusVersion | extractKey) < '3.9' }}
       action: fetch:template
       input:
         url: skeletons/quarkus-orm-rest/
